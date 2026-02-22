@@ -14,6 +14,7 @@ Then install the plugins you want:
 
 ```sh
 claude plugin install obsidian@basics
+claude plugin install qmd@basics
 ```
 
 Restart Claude Code to activate.
@@ -35,6 +36,17 @@ Tools for working with [Obsidian](https://obsidian.md) vaults — Markdown notes
 **Prerequisites:**
 - **obsidian-cli** requires Obsidian to be running on your machine
 - **defuddle** requires `npm install -g @kepano/defuddle-cli`
+
+### qmd
+
+On-device search engine for markdown notes, meeting transcripts, documentation, and knowledge bases. Combines BM25 keyword search, vector semantic search, and LLM re-ranking — all running locally via [QMD](https://github.com/tobi/qmd).
+
+| Skill | Description |
+|-------|-------------|
+| **qmd** | Search and retrieve content from indexed markdown collections using keyword, semantic, or hybrid search |
+
+**Prerequisites:**
+- Requires `npm install -g @tobilu/qmd`
 
 ## Credits
 
