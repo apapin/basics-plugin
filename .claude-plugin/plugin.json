@@ -1,0 +1,9 @@
+{
+  "name": "personal",
+  "version": "0.1.0",
+  "description": "Personal productivity plugin with Obsidian skills for working with Markdown notes, Bases, JSON Canvas, the Obsidian CLI, and web content extraction via Defuddle",
+  "author": {
+    "name": "Alexandre"
+  },
+  "keywords": ["obsidian", "markdown", "canvas", "bases", "notes", "personal"]
+}
