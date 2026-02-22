@@ -32,10 +32,12 @@ Tools for working with [Obsidian](https://obsidian.md) vaults — Markdown notes
 | **json-canvas** | Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections |
 | **obsidian-cli** | Interact with Obsidian vaults via CLI — read, create, search, manage notes, and develop plugins |
 | **defuddle** | Extract clean markdown from web pages, stripping navigation, ads, and clutter |
+| **vault-search** | Search Obsidian vaults using QMD's hybrid search, then act on results with Obsidian CLI |
 
 **Prerequisites:**
 - **obsidian-cli** requires Obsidian to be running on your machine
 - **defuddle** requires `npm install -g @kepano/defuddle-cli`
+- **vault-search** requires `npm install -g @tobilu/qmd`
 
 ### qmd
 
