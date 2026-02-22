@@ -1,0 +1,13 @@
+{
+  "name": "basics",
+  "owner": {
+    "name": "apapin"
+  },
+  "plugins": [
+    {
+      "name": "obsidian",
+      "source": "./",
+      "description": "Obsidian skills for working with Markdown notes, Bases, JSON Canvas, the Obsidian CLI, and web content extraction via Defuddle"
+    }
+  ]
+}
