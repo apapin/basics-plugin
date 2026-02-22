@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "obsidian",
-      "source": "./",
+      "source": "./plugins/obsidian",
       "description": "Obsidian skills for working with Markdown notes, Bases, JSON Canvas, the Obsidian CLI, and web content extraction via Defuddle"
     }
   ]

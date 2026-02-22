@@ -1,8 +1,28 @@
-# Personal Plugin
+# basics-plugin
 
-A personal productivity plugin with Obsidian skills for working with Markdown notes, Bases, JSON Canvas, the Obsidian CLI, and web content extraction.
+A Claude Code plugin marketplace for personal productivity tools.
 
-## Skills
+## Install
+
+Add the marketplace:
+
+```sh
+claude plugin marketplace add apapin/basics-plugin
+```
+
+Then install the plugins you want:
+
+```sh
+claude plugin install obsidian@basics
+```
+
+Restart Claude Code to activate.
+
+## Plugins
+
+### obsidian
+
+Tools for working with [Obsidian](https://obsidian.md) vaults — Markdown notes, Bases, JSON Canvas, the CLI, and web content extraction.
 
 | Skill | Description |
 |-------|-------------|
@@ -12,11 +32,10 @@ A personal productivity plugin with Obsidian skills for working with Markdown no
 | **obsidian-cli** | Interact with Obsidian vaults via CLI — read, create, search, manage notes, and develop plugins |
 | **defuddle** | Extract clean markdown from web pages, stripping navigation, ads, and clutter |
 
-## Setup
-
+**Prerequisites:**
 - **obsidian-cli** requires Obsidian to be running on your machine
 - **defuddle** requires `npm install -g @kepano/defuddle-cli`
 
 ## Credits
 
-Skills adapted from [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills).
+Obsidian skills adapted from [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills).
