@@ -1,0 +1,9 @@
+{
+  "name": "skill-creator",
+  "version": "0.1.0",
+  "description": "Guide for creating effective skills that extend Claude's capabilities with specialized knowledge, workflows, and tool integrations",
+  "author": {
+    "name": "Alexandre"
+  },
+  "keywords": ["skills", "plugin", "creator", "development"]
+}

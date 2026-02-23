@@ -13,6 +13,11 @@
       "name": "qmd",
       "source": "./plugins/qmd",
       "description": "Search markdown notes, meeting transcripts, and documentation with QMD — hybrid BM25 + vector search running locally"
+    },
+    {
+      "name": "skill-creator",
+      "source": "./plugins/skill-creator",
+      "description": "Guide for creating effective skills that extend Claude's capabilities with specialized knowledge, workflows, and tool integrations"
     }
   ]
 }
