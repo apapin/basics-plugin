@@ -2,8 +2,10 @@
 name: vault
 description: >
   Work with Obsidian vaults — search, read, create, and organize notes using QMD and native
-  file tools. Use when the user mentions "vault", "notes", "Obsidian", or wants to find,
-  save, remember, or update information in their knowledge base.
+  file tools. Use when the user mentions "vault", "notes", "Obsidian", "docs", "documentation",
+  "reference", or wants to find, search, look up, save, remember, get context on, or update
+  information in their knowledge base. Also use when asked "what do we have on", "check if
+  there's a doc", or "get context" for a topic.
 version: 0.2.0
 ---
 
