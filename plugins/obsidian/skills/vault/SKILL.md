@@ -15,19 +15,20 @@ Work with Obsidian vaults using QMD for search and native file tools for read/wr
 
 ## Discovery
 
-Each vault is a **QMD index**. List available indexes:
-
-```bash
-ls ~/.config/qmd/*.yml
-```
-
-Check an index:
-
-```bash
-qmd --index <name> status
-```
+Each vault is a **QMD index**. Available indexes and their collections are listed in the SessionStart output at the top of every session. Check project CLAUDE.md/AGENTS.md for project-specific collection details.
 
 ## Search
+
+**Prefer QMD MCP tools** when available (`mcp__qmd__query`, `mcp__qmd__get`, `mcp__qmd__status`, `mcp__qmd__multi_get`). Fall back to CLI if MCP is not configured for the current project.
+
+### MCP tools (preferred)
+
+- `mcp__qmd__query` — hybrid search (best quality, recommended)
+- `mcp__qmd__get` — retrieve a document by path or ID
+- `mcp__qmd__multi_get` — retrieve multiple documents by glob
+- `mcp__qmd__status` — check index status and collections
+
+### CLI fallback
 
 ```bash
 # Hybrid search — best quality (recommended)
