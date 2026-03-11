@@ -1,4 +1,4 @@
-# basics
+# dotagent
 
 Personal agent configuration, hooks, and Claude Code plugins.
 
@@ -21,8 +21,8 @@ Personal agent configuration, hooks, and Claude Code plugins.
 ## Setup
 
 ```sh
-git clone git@github.com:apapin/basics-plugin.git ~/dev/basics-plugin
-cd ~/dev/basics-plugin
+git clone git@github.com:apapin/dotagent.git ~/dev/dotagent
+cd ~/dev/dotagent
 ./install.sh          # or --dry-run to preview
 ```
 
@@ -31,7 +31,7 @@ The install script symlinks `CLAUDE.md`, hooks, and QMD configs into their expec
 ### Plugin marketplace
 
 ```sh
-claude plugin marketplace add apapin/basics-plugin
+claude plugin marketplace add apapin/dotagent
 claude plugin install obsidian@basics
 ```
 
