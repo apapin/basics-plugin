@@ -1,9 +1,9 @@
 {
   "name": "obsidian",
-  "version": "0.1.0",
-  "description": "Personal productivity plugin with Obsidian skills for working with Markdown notes, Bases, JSON Canvas, the Obsidian CLI, and web content extraction via Defuddle",
+  "version": "0.2.0",
+  "description": "Work with Obsidian vaults — search, read, create, and organize notes",
   "author": {
     "name": "Alexandre"
   },
-  "keywords": ["obsidian", "markdown", "canvas", "bases", "notes", "personal"]
+  "keywords": ["obsidian", "vault", "notes", "qmd", "search", "knowledge-base"]
 }

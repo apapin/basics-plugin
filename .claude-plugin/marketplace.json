@@ -7,12 +7,7 @@
     {
       "name": "obsidian",
       "source": "./plugins/obsidian",
-      "description": "Obsidian skills for working with Markdown notes, Bases, JSON Canvas, the Obsidian CLI, and web content extraction via Defuddle"
-    },
-    {
-      "name": "qmd",
-      "source": "./plugins/qmd",
-      "description": "Search markdown notes, meeting transcripts, and documentation with QMD — hybrid BM25 + vector search running locally"
+      "description": "Work with Obsidian vaults — search, read, create, and organize notes"
     },
     {
       "name": "skill-creator",

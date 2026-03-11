@@ -1,9 +1,0 @@
-{
-  "name": "qmd",
-  "version": "0.1.0",
-  "description": "Search your markdown notes, meeting transcripts, and documentation with QMD — hybrid BM25 + vector search running locally",
-  "author": {
-    "name": "Alexandre"
-  },
-  "keywords": ["qmd", "search", "markdown", "notes", "embeddings", "knowledge-base"]
-}
