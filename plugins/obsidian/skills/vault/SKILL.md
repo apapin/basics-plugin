@@ -15,13 +15,13 @@ Work with Obsidian vaults using QMD for search and native file tools for read/wr
 
 ## Discovery
 
-Each vault is a **QMD index**. Available indexes and their collections are listed in the SessionStart output at the top of every session. Check project CLAUDE.md/AGENTS.md for project-specific collection details.
+Available vault indexes and their collections are listed in the SessionStart output at the top of every session. Check project CLAUDE.md/AGENTS.md for project-specific collection details.
 
 ## Search
 
-**Prefer QMD MCP tools** when available (`mcp__qmd__query`, `mcp__qmd__get`, `mcp__qmd__status`, `mcp__qmd__multi_get`). Fall back to CLI if MCP is not configured for the current project.
+Use **QMD MCP tools** when available (the project's `.mcp.json` configures the right index automatically). Fall back to CLI when MCP is not configured.
 
-### MCP tools (preferred)
+### MCP tools (preferred — no index needed)
 
 - `mcp__qmd__query` — hybrid search (best quality, recommended)
 - `mcp__qmd__get` — retrieve a document by path or ID
@@ -30,18 +30,15 @@ Each vault is a **QMD index**. Available indexes and their collections are liste
 
 ### CLI fallback
 
+When MCP is not available, use the CLI with `--index <name>` (index names are in the SessionStart output):
+
 ```bash
-# Hybrid search — best quality (recommended)
-qmd --index <name> query "quarterly planning"
-
-# Keyword search — fast, BM25
-qmd --index <name> search "API key"
-
-# Semantic search — conceptual similarity
-qmd --index <name> vsearch "how to deploy"
+qmd --index <name> query "quarterly planning"   # hybrid (recommended)
+qmd --index <name> search "API key"             # BM25 keyword (fast, no LLM)
+qmd --index <name> vsearch "how to deploy"      # semantic similarity
 ```
 
-### Options
+### Common options
 
 | Flag | Purpose |
 |------|---------|
@@ -50,17 +47,12 @@ qmd --index <name> vsearch "how to deploy"
 | `--min-score <num>` | Minimum relevance score |
 | `--all --min-score 0.3` | All matches above threshold |
 | `--json` | Structured JSON output |
-| `--files` | File paths with scores |
+| `--files` | File paths only |
 | `--intent "..."` | Disambiguate the query |
-| `--explain` | Show retrieval score traces |
 
 ### Lex syntax (keyword search)
 
-```bash
-qmd --index <name> search '"exact phrase" API -deprecated'
-```
-
-- `"quoted"` — exact phrase match
+- `"quoted phrase"` — exact phrase match
 - `-term` — exclude term
 
 ## Read & Write
@@ -73,12 +65,15 @@ Edit:  /path/to/vault/ref/topic/note.md
 Write: /path/to/vault/Stream/2026-03-11.1430.md
 ```
 
-## Retrieve via QMD
+## Retrieve
+
+Via MCP: `mcp__qmd__get` (by path or `#docid`) and `mcp__qmd__multi_get` (by glob).
+
+Via CLI fallback:
 
 ```bash
 qmd --index <name> get "path/to/file.md"         # by path
 qmd --index <name> get "#docid"                   # by ID from search results
-qmd --index <name> get "file.md:50" -l 100        # from line 50, 100 lines
 qmd --index <name> multi-get "journals/2025-05*"  # by glob
 ```
 
