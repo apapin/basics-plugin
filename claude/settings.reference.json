@@ -14,7 +14,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/inject-qmd-collections.sh",
+            "command": "/Users/apapin/.claude/hooks/inject-qmd-collections.sh",
             "timeout": 10
           }
         ]
