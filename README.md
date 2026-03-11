@@ -1,55 +1,63 @@
-# basics-plugin
+# basics
 
-A Claude Code plugin marketplace for personal productivity tools.
+Personal agent configuration, hooks, and Claude Code plugins.
 
-## Install
+## What's here
 
-Add the marketplace:
+```
+├── plugins/         Claude Code plugin marketplace
+│   ├── obsidian/      Vault skill — search, read, create notes via QMD
+│   └── skill-creator/ Guide for authoring skills
+├── claude/           Global agent config
+│   ├── CLAUDE.md       Preferences, conventions, vault instructions
+│   ├── hooks/          SessionStart hook (QMD collection injection)
+│   └── settings.reference.json
+├── qmd/              QMD index configurations
+│   ├── acolyte.yml     Personal Obsidian vault
+│   └── yuma.yml        Yuma project docs
+└── install.sh        Bootstrap — symlinks configs into place
+```
+
+## Setup
+
+```sh
+git clone git@github.com:apapin/basics-plugin.git ~/dev/basics-plugin
+cd ~/dev/basics-plugin
+./install.sh          # or --dry-run to preview
+```
+
+The install script symlinks `CLAUDE.md`, hooks, and QMD configs into their expected locations (`~/.claude/`, `~/.config/qmd/`). Re-run safely after pulling changes.
+
+### Plugin marketplace
 
 ```sh
 claude plugin marketplace add apapin/basics-plugin
+claude plugin install obsidian@basics
 ```
 
-Then install the plugins you want:
+### QMD
 
 ```sh
-claude plugin install obsidian@basics
-claude plugin install qmd@basics
+npm install -g @tobilu/qmd
+qmd --index acolyte update && qmd --index acolyte embed
+qmd --index yuma update && qmd --index yuma embed
 ```
 
-Restart Claude Code to activate.
+## How it works
 
-## Plugins
+- **CLAUDE.md** — always loaded into agent context. Contains behavioral directives (search vault before coding), conventions, vault index names.
+- **SessionStart hook** — injects available QMD collections at session start. Project-aware: if `.mcp.json` defines a QMD `INDEX_PATH`, only that index is shown.
+- **Vault skill** — auto-triggers on vault/docs/notes/reference keywords. Documents MCP tools (preferred) and CLI fallback.
+- **QMD configs** — define which folders to index, ignore patterns, and sub-collection context descriptions.
 
-### obsidian
+## Multiple config dirs
 
-Tools for working with [Obsidian](https://obsidian.md) vaults — Markdown notes, Bases, JSON Canvas, the CLI, and web content extraction.
+If using multiple Claude Code config dirs (e.g. `~/.claude` and `~/.claude-team`), symlink the content dirs from the secondary to the primary:
 
-| Skill | Description |
-|-------|-------------|
-| **obsidian-markdown** | Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other Obsidian-specific syntax |
-| **obsidian-bases** | Create and edit Obsidian Bases (.base files) with views, filters, formulas, and summaries |
-| **json-canvas** | Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections |
-| **obsidian-cli** | Interact with Obsidian vaults via CLI — read, create, search, manage notes, and develop plugins |
-| **defuddle** | Extract clean markdown from web pages, stripping navigation, ads, and clutter |
-| **vault-search** | Search Obsidian vaults using QMD's hybrid search, then act on results with Obsidian CLI |
+```sh
+ln -s ~/.claude/CLAUDE.md ~/.claude-team/CLAUDE.md
+ln -s ~/.claude/hooks ~/.claude-team/hooks
+ln -s ~/.claude/skills ~/.claude-team/skills
+```
 
-**Prerequisites:**
-- **obsidian-cli** requires Obsidian to be running on your machine
-- **defuddle** requires `npm install -g @kepano/defuddle-cli`
-- **vault-search** requires `npm install -g @tobilu/qmd`
-
-### qmd
-
-On-device search engine for markdown notes, meeting transcripts, documentation, and knowledge bases. Combines BM25 keyword search, vector semantic search, and LLM re-ranking — all running locally via [QMD](https://github.com/tobi/qmd).
-
-| Skill | Description |
-|-------|-------------|
-| **qmd** | Search and retrieve content from indexed markdown collections using keyword, semantic, or hybrid search |
-
-**Prerequisites:**
-- Requires `npm install -g @tobilu/qmd`
-
-## Credits
-
-Obsidian skills adapted from [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills).
+`settings.json` should remain independent per config dir (it accumulates instance-specific state).

@@ -1,0 +1,13 @@
+collections:
+  vault:
+    path: /Users/apapin/Documents/Acolyte
+    pattern: "**/*.md"
+    ignore:
+      - ".obsidian/**"
+      - "zExtras/**"
+      - "Templates/**"
+    context:
+      "": Personal knowledge base — ongoing projects, reference docs, daily notes
+      desk: Active projects — plans, implementation, things in progress
+      ref: Evergreen reference — topics, people, places, how things work
+      Stream: Daily notes, meeting notes, logs — timestamped entries

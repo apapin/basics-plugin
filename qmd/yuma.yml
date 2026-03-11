@@ -1,0 +1,31 @@
+collections:
+  yuma-recipes:
+    path: /Users/apapin/dev/yuma/yuma-back/recipes
+    pattern: "**/*.md"
+    context:
+      "": Product documentation and domain knowledge for Yuma features and concepts
+  yuma-front-docs:
+    path: /Users/apapin/dev/yuma/yuma-front/docs
+    pattern: "**/*.md"
+    context:
+      "": Frontend-specific documentation for the Yuma Next.js/React app
+  ref:
+    path: /Users/apapin/dev/yuma/vault/ref
+    pattern: "**/*.md"
+    context:
+      "": Reference documentation about the current state of the codebase
+  concepts:
+    path: /Users/apapin/dev/yuma/vault/Concepts
+    pattern: "**/*.md"
+    context:
+      "": Evergreen references about objects and topics
+  stream:
+    path: /Users/apapin/dev/yuma/vault/Stream
+    pattern: "**/*.md"
+    context:
+      "": Daily notes and meeting notes
+  desk:
+    path: /Users/apapin/dev/yuma/vault/desk
+    pattern: "**/*.md"
+    context:
+      "": Design documents and implementation plans for ongoing work
